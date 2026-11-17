@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VANITHRAJA AI Chatbot</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="app-layout">
+    <aside class="sidebar" aria-label="Chat tools">
+        <a class="brand" href="/" aria-label="VANITHRAJA AI home">
+            <span class="brand-mark" aria-hidden="true">V</span>
+            <span class="sidebar-label">VANITHRAJA AI</span>
+        </a>
+
+        <button type="button" class="sidebar-button" id="new-chat-btn"
+                title="New chat" aria-label="New chat">
+            <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" />
+            </svg>
+            <span class="sidebar-label">New chat</span>
+        </button>
+
+        <section class="chat-history" aria-label="Recent chats">
+            <p class="sidebar-heading">Recent chats</p>
+            <div id="conversation-list"></div>
+        </section>
+
+        <div class="sidebar-footer">
+            <span class="status-dot" aria-hidden="true"></span>
+            Your AI assistant
+        </div>
+    </aside>
+
+    <main class="chat-main">
+        <header class="topbar">
+            <span class="topbar-title">VANITHRAJA AI</span>
+            <span class="status-label"><span class="status-dot" aria-hidden="true"></span> Ready to chat</span>
+        </header>
+
+        <section class="chat-section" aria-label="Chat">
+            <div id="chat-box" aria-live="polite">
+                <div class="welcome-section">
+                    <div class="welcome-mark" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M24 5.5 27.8 19l13.7 5-13.7 4.9L24 42.5l-3.8-13.6L6.5 24l13.7-5L24 5.5Z" />
+                            <path d="m38 5 1.4 4.6L44 11l-4.6 1.4L38 17l-1.4-4.6L32 11l4.6-1.4L38 5Z" />
+                        </svg>
+                    </div>
+                    <h1>How can I help you today?</h1>
+                    <p>Ask me anything. I’m here to help.</p>
+                    <div class="suggestion-grid" aria-label="Try asking">
+                        <button type="button" class="suggestion-card" data-prompt="Explain a topic in simple words">
+                            <span class="suggestion-icon" aria-hidden="true">A</span>
+                            <span><strong>Explain something</strong><small>Make a topic easy to understand</small></span>
+                        </button>
+                        <button type="button" class="suggestion-card" data-prompt="Help me write a clear and friendly email">
+                            <span class="suggestion-icon" aria-hidden="true">W</span>
+                            <span><strong>Write something</strong><small>Draft a message or improve your text</small></span>
+                        </button>
+                        <button type="button" class="suggestion-card" data-prompt="Give me some creative ideas for a project">
+                            <span class="suggestion-icon" aria-hidden="true">B</span>
+                            <span><strong>Brainstorm ideas</strong><small>Explore a new project or plan</small></span>
+                        </button>
+                        <button type="button" class="suggestion-card" data-prompt="Help me solve a problem step by step">
+                            <span class="suggestion-icon" aria-hidden="true">P</span>
+                            <span><strong>Solve a problem</strong><small>Work through it one step at a time</small></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <form id="chat-form">
+                <label class="sr-only" for="user-input">Message VANITHRAJA AI</label>
+                <input type="text"
+                       id="user-input"
+                       placeholder="Message VANITHRAJA AI..."
+                       autocomplete="off"
+                       required>
+                <button type="submit" id="send-btn" aria-label="Send message">
+                    <span>Send</span>
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M3.5 10h13m-5-5 5 5-5 5" />
+                    </svg>
+                </button>
+            </form>
+            <p class="chat-note">AI can make mistakes. Check important information.</p>
+            <p id="storage-warning" class="storage-warning" hidden>
+                Chat history could not be saved in this browser.
+            </p>
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
